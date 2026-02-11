@@ -1,4 +1,4 @@
-# Arrays
+# Dynamic Arrays
 class DynamicArrays:
     # Initializes the dynamic array with a fixed starting capacity, zero length, and an underlying list.
     def __init__(self):

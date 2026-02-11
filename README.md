@@ -1,4 +1,6 @@
-# Data Structures in Python
+# 📚 Data Structures in Python
+
+---
 
 This repository contains my implementations of fundamental data structures written from scratch in Python.
 
@@ -8,21 +10,24 @@ This repository will grow over time as more data structures and features are add
 
 ---
 
-## DynamicArrays
+# 📦 DynamicArrays (Class)
 
-### Overview
+---
 
-`DynamicArrays` is a manual implementation of a dynamic array (similar in behavior to Python’s built-in `list`).  
+## 🔎 Overview
+
+`DynamicArrays` is a manual implementation of a dynamic array (similar in behavior to Python’s built-in `list`).
+
 Unlike Python lists, this implementation explicitly tracks:
 
-- **capacity**: the total allocated storage
-- **length**: the number of elements currently stored
+- **capacity** → total allocated storage  
+- **length** → number of elements currently stored  
 
 The array automatically resizes itself when it becomes full or underutilized, ensuring efficient amortized performance.
 
 ---
 
-### Core Concepts
+## 🧠 Core Concepts
 
 - Elements are stored in a fixed-size underlying list.
 - When capacity is exceeded, the array **doubles in size**.
@@ -31,82 +36,103 @@ The array automatically resizes itself when it becomes full or underutilized, en
 
 ---
 
-### Class Interface
-
-#### `__init__`
-Initializes the array with:
-- capacity = 4
-- length = 0
-- an underlying list filled with `None`
+## ⚙️ Class Interface (Methods)
 
 ---
 
-#### `__len__`
+### `__init__()`
+
+Initializes the array with:
+
+- `capacity = 4`
+- `length = 0`
+- An underlying list filled with `None`
+
+---
+
+### `__len__()`
+
 Returns the current number of elements stored in the array.
 
 ---
 
-#### `access_element_by_index(index)`
+### `access_element_by_index(index)`
+
 Returns the element at the specified index if it is within bounds.  
 Raises an `IndexError` otherwise.
 
-Time complexity: **O(1)**
+**Time Complexity:** `O(1)`
 
 ---
 
-#### `resize(capacity)`
+### `resize(capacity)`
+
 Creates a new underlying array with the given capacity and copies all existing elements into it.
 
-This method does not modify `length` and is used internally by other operations.
+- Does **not** modify `length`
+- Used internally by other operations
 
-Time complexity: **O(n)**
+**Time Complexity:** `O(n)`
 
 ---
 
-#### `_append(element)`
+### `_append(element)`
+
 Adds an element to the end of the array.
 
-- If the array is full, capacity is doubled and elements are copied into a new array.
-- Otherwise, the element is added directly.
+- If the array is full → capacity doubles and elements are copied
+- Otherwise → element is inserted directly
 
-Time complexity:
-- **Amortized O(1)**
-- Worst-case **O(n)** during resizing
+**Time Complexity:**
+- Amortized → `O(1)`
+- Worst case → `O(n)` (during resizing)
 
 ---
 
-#### `_pop()`
+### `_pop()`
+
 Removes the last element in the array.
 
-- If usage drops below one-quarter of capacity, the array shrinks.
-- Raises an error if the array is empty.
+- If usage drops below one-quarter of capacity → array shrinks
+- Raises an error if the array is empty
 
-Time complexity:
-- **Amortized O(1)**
-- Worst-case **O(n)** during resizing
+**Time Complexity:**
+- Amortized → `O(1)`
+- Worst case → `O(n)` (during resizing)
 
 ---
 
-#### `insert_at_index(index, element)`
+### `insert_at_index(index, element)`
+
 Inserts an element at a specific index.
 
-- Elements are shifted to the right.
-- The array resizes if necessary.
+- Elements are shifted to the right
+- Resizes if necessary
 
-Time complexity: **O(n)**
+**Time Complexity:** `O(n)`
 
 ---
 
-#### `remove_at_index(index)`
+### `remove_at_index(index)`
+
 Removes the element at a specific index.
 
-- Elements are shifted to the left.
-- The array shrinks if underutilized.
+- Elements are shifted to the left
+- Shrinks if underutilized
 
-Time complexity: **O(n)**
+**Time Complexity:** `O(n)`
 
 ---
 
-## Future Work
+# 🚀 Future Work
 
-This README will be expanded as the project grows.
+---
+
+Planned additions include:
+
+- Additional data structures (Stacks, Queues, Linked Lists, Trees)
+- Unit tests
+- Performance benchmarks
+- Visualization helpers
+
+This README will continue evolving as the project grows.
