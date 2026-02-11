@@ -10,6 +10,16 @@ class DynamicArrays:
     def __len__(self):
         return self.length
 
+    # Returns a human-readable string showing the array.
+    def __str__(self):
+        return f"Array: {self.arr}"
+
+    # Reset current array to default values
+    def reset(self):
+        self.capacity = 4
+        self.length = 0
+        self.arr = [None] * self.capacity
+
     # Returns the element at a given index if it’s within bounds.
     def access_element_by_index(self, index):
         if 0 <= index < self.length:

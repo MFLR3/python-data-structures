@@ -56,6 +56,29 @@ Returns the current number of elements stored in the array.
 
 ---
 
+### `__str__()`
+
+Returns a readable string showing capacity, length, and array contents.
+Useful for quick inspection of the array’s state.
+
+---
+
+#### `reset()`
+
+**Reset the array to its initial state**
+
+This method restores the array to its default values:  
+
+- **capacity** is set back to `4`  
+- **length** is reset to `0`  
+- The underlying array is cleared and filled with `None`
+
+It is useful for testing or reusing the same `DynamicArrays` object without creating a new instance.
+
+**Time Complexity:** `O(n)`
+
+---
+
 ### `access_element_by_index(index)`
 
 Returns the element at the specified index if it is within bounds.  
@@ -136,3 +159,77 @@ Planned additions include:
 - Visualization helpers
 
 This README will continue evolving as the project grows.
+
+---
+
+# 🧪 problems.py
+
+---
+
+A dedicated `problems` file is included to manually test and demonstrate the behavior of the `DynamicArrays` class.
+
+This file is designed to:
+
+- Showcase internal resizing behavior
+- Validate shifting logic during insertions and removals
+- Demonstrate shrinking when underutilized
+- Test edge cases safely using `try/except`
+- Provide clear console output for step-by-step verification
+
+---
+
+## 🔹 What This File Covers
+
+#### 1. Setup
+- Instantiates a new `DynamicArrays` object
+- Prints the initial state
+
+#### 2. Basic Append / Pop
+- Appends multiple elements to trigger growth
+- Pops elements to trigger shrink behavior
+- Verifies amortized resizing logic
+
+#### 3. Access by Index
+- Confirms correct element retrieval
+- Validates bounds checking
+
+#### 4. Insert at Index
+- Tests element shifting to the right
+- Verifies resizing when capacity is exceeded
+
+#### 5. Remove at Index
+- Tests element shifting to the left
+- Ensures proper cleanup of unused slots
+
+#### 6. Resize Behaviour
+- Forces growth and shrink conditions
+- Confirms minimum capacity protection
+
+#### 7. Edge Cases
+- Accessing an empty array
+- Popping from an empty array
+- Inserting at index `0`
+- Inserting at the end
+- Removing first and last elements
+- Repeated removals to trigger shrinking
+- Preventing shrink below minimum capacity
+
+All edge cases are handled using `try/except` so the program continues running.
+
+---
+
+### 🎯 Purpose
+
+The goal of this file is not automated testing, but **educational verification**.  
+
+It allows observation of:
+
+- Internal state transitions
+- Capacity vs length changes
+- Shifting behavior
+- Shrink thresholds
+- Error handling
+
+As the project grows, this section may evolve into formal unit tests.
+
+---
