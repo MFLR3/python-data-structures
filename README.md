@@ -162,7 +162,7 @@ This README will continue evolving as the project grows.
 
 ---
 
-# 🧪 problems.py
+# 🧪 problems.py - For DynamicArrays (class)
 
 ---
 
@@ -233,3 +233,224 @@ It allows observation of:
 As the project grows, this section may evolve into formal unit tests.
 
 ---
+
+# 📦 bfs_dfs (Class)
+
+---
+
+# 📦 graph (Class)
+
+---
+
+# 📦 problems.py - For bfs_dfs (class) and graph (class)
+
+---
+
+# 📦 hash_table (Class)
+
+---
+
+# 📦 problems.py - For hash_table (Class)
+
+---
+
+# 📦 doubly_linked_list (Class)
+
+---
+
+# 📦 singly_linked_list (Class)
+
+---
+
+# 📦 problems.py - For doubly_linked_list (Class) and singly_linked_list (Class)
+
+---
+
+# 📦 Queue (Class)
+
+---
+
+## Overview
+
+`Queue` is a First-In, First-Out (FIFO) data structure built on top of the custom `DynamicArrays` implementation.
+
+Unlike Python’s built-in queue structures, this implementation explicitly separates:
+
+- **Storage responsibility** → handled by `DynamicArrays`
+- **Behavior responsibility** → handled by `Queue`
+
+Elements are added to the **back** and removed from the **front**, preserving FIFO order.
+
+---
+
+### Core Concepts
+
+- Built using **composition** (Queue *has a* DynamicArray)
+- Enqueue inserts at the back
+- Dequeue removes from the front
+- Automatically benefits from DynamicArray resizing
+- Shifting during dequeue results in **O(n)** removal
+
+---
+
+### Class Interface
+
+---
+
+#### `__init__`
+
+Initializes an empty queue by creating a new `DynamicArrays` instance for internal storage.
+
+---
+
+#### `__len__`
+
+Returns the number of elements currently stored in the queue.
+
+Time complexity: **O(1)**
+
+---
+
+#### `__str__`
+
+Returns a readable string representation of the queue contents.
+
+---
+
+#### `enqueue(value)`
+
+Adds a value to the back of the queue.
+
+If the underlying array is full, resizing is handled automatically by `DynamicArrays`.
+
+Time complexity:  
+- **Amortized O(1)**  
+- Worst-case **O(n)** during resizing
+
+---
+
+#### `dequeue()`
+
+Removes and returns the value at the front of the queue.
+
+Raises `IndexError` if the queue is empty.
+
+Time complexity: **O(n)** (due to element shifting)
+
+---
+
+#### `peek()`
+
+Returns the value at the front without removing it.
+
+Raises `IndexError` if the queue is empty.
+
+Time complexity: **O(1)**
+
+---
+
+#### `is_empty()`
+
+Returns `True` if the queue contains no elements.
+
+Time complexity: **O(1)**
+
+---
+
+### Design Notes
+
+- Queue does not manage memory or resizing directly.
+- All storage mechanics are delegated to `DynamicArrays`.
+- This separation maintains clean abstraction and modularity.
+- The implementation prioritizes clarity over optimal dequeue performance.
+
+---
+
+### Future Improvements
+
+- Implement a circular queue for true **O(1)** dequeue
+- Add benchmarking comparisons
+- Add unit tests
+- Integrate into BFS implementation
+
+---
+
+# 📦 problems.py - For queue (class)
+
+---
+
+# 📦 binary_search (Class)
+
+---
+
+# 📦 linear_search (Class)
+
+---
+
+# 📦 bubble_sort (Class)
+
+---
+
+# 📦 counting_sort (Class)
+
+---
+
+# 📦 insertion_sort (Class)
+
+---
+
+# 📦 merge_sort (Class)
+
+---
+
+# 📦 quick_sort (Class)
+
+---
+
+# 📦 radix_sort (Class)
+
+---
+
+# 📦 selection_sort (Class)
+
+---
+
+# 📦 stack (Class)
+
+---
+
+# 📦 problems.py - For stack (Class)
+
+---
+
+# 📦 test_all (Class)
+
+---
+
+# 📦 avl_tree (Class)
+
+---
+
+# 📦 binary_tree (Class)
+
+---
+
+# 📦 bst (Class)
+
+---
+
+# 📦 traversals (Class)
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
