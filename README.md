@@ -405,7 +405,7 @@ Each section prints the queue state after operations to visually confirm correct
 
 ---
 
-### 1️⃣ Setup & Initialization
+### 1. Setup & Initialization
 
 Creates a new `Queue` instance and verifies:
 
@@ -415,7 +415,7 @@ Creates a new `Queue` instance and verifies:
 
 ---
 
-### 2️⃣ Basic Enqueue Test
+### 2. Basic Enqueue Test
 
 Performs 5 enqueue operations and verifies:
 
@@ -426,7 +426,7 @@ Performs 5 enqueue operations and verifies:
 
 ---
 
-### 3️⃣ Peek Test
+### 3. Peek Test
 
 Confirms that:
 
@@ -436,7 +436,7 @@ Confirms that:
 
 ---
 
-### 4️⃣ Multiple Dequeue Test
+### 4. Multiple Dequeue Test
 
 Performs 5 dequeue operations and verifies:
 
@@ -447,7 +447,7 @@ Performs 5 dequeue operations and verifies:
 
 ---
 
-### 5️⃣ Enqueue After Dequeue
+### 5. Enqueue After Dequeue
 
 Tests queue stability after being emptied by:
 
@@ -457,7 +457,7 @@ Tests queue stability after being emptied by:
 
 ---
 
-### 6️⃣ Empty Queue Edge Cases
+### 6. Empty Queue Edge Cases
 
 Validates proper error handling by:
 
@@ -467,7 +467,7 @@ Validates proper error handling by:
 
 ---
 
-### 7️⃣ Resizing Behaviour Stress Test
+### 7. Resizing Behaviour Stress Test
 
 Performs 33 enqueue operations to:
 
@@ -477,7 +477,7 @@ Performs 33 enqueue operations to:
 
 ---
 
-### 8️⃣ Mixed Operation Test
+### 8. Mixed Operation Test
 
 Simulates realistic usage by mixing:
 
