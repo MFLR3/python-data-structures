@@ -1,3 +1,4 @@
+# Queue
 import arrays_lists.dynamic_arrays as da
 
 
@@ -12,7 +13,7 @@ class Queue:
 
     # Return a readable string representation of the queue
     def __str__(self):
-        return f"Queue: {self.data}"
+        return f"Queue: {self.data.arr}"
 
     # Add a value to the back of the queue (FIFO insertion)
     def enqueue(self, value):
@@ -32,10 +33,14 @@ class Queue:
     # Raises IndexError if the queue is empty
     def peek(self):
         if self.is_empty():
-            raise IndexError("Queue is empty.")
+            raise IndexError("Cannot peek on empty queue. ")
         else:
             return self.data.access_element_by_index(0)
 
     # Return True if the queue contains no elements
     def is_empty(self):
         return len(self) == 0
+
+    # Reset all values to default
+    def reset(self):
+        self.data.reset()

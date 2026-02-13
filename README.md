@@ -357,6 +357,16 @@ Time complexity: **O(1)**
 
 ---
 
+#### `reset()`
+
+**Reset the array to its initial state**
+
+Refer to `DynamicArrays (Class) - reset()`
+
+Time complexity: **O(1)**
+
+---
+
 ### Design Notes
 
 - Queue does not manage memory or resizing directly.
@@ -375,7 +385,119 @@ Time complexity: **O(1)**
 
 ---
 
-# 📦 problems.py - For queue (class)
+# 🧪 problems.py - For queue (class)
+
+---
+
+## Overview
+
+This file contains structured test cases for validating the `Queue` implementation.
+
+The goal is to verify:
+
+- FIFO behaviour
+- Correct length tracking
+- Proper handling of empty states
+- Correct resizing behaviour
+- Stability under mixed operations
+
+Each section prints the queue state after operations to visually confirm correctness.
+
+---
+
+### 1️⃣ Setup & Initialization
+
+Creates a new `Queue` instance and verifies:
+
+- Initial state is empty
+- Length is `0`
+- `is_empty()` returns `True`
+
+---
+
+### 2️⃣ Basic Enqueue Test
+
+Performs 5 enqueue operations and verifies:
+
+- Elements are added to the back
+- Order is preserved
+- Length increases correctly
+- `is_empty()` returns `False`
+
+---
+
+### 3️⃣ Peek Test
+
+Confirms that:
+
+- `peek()` returns the front element
+- The queue remains unchanged after peeking
+- Length does not change
+
+---
+
+### 4️⃣ Multiple Dequeue Test
+
+Performs 5 dequeue operations and verifies:
+
+- Elements are removed in FIFO order
+- Removed values are printed
+- Length decreases correctly
+- Queue eventually becomes empty
+
+---
+
+### 5️⃣ Enqueue After Dequeue
+
+Tests queue stability after being emptied by:
+
+- Performing additional enqueue operations
+- Confirming order is preserved
+- Confirming length updates correctly
+
+---
+
+### 6️⃣ Empty Queue Edge Cases
+
+Validates proper error handling by:
+
+- Attempting `dequeue()` on an empty queue
+- Attempting `peek()` on an empty queue
+- Catching and printing `IndexError` without crashing the program
+
+---
+
+### 7️⃣ Resizing Behaviour Stress Test
+
+Performs 33 enqueue operations to:
+
+- Trigger underlying dynamic resizing
+- Confirm no data corruption
+- Confirm length accuracy after large insertions
+
+---
+
+### 8️⃣ Mixed Operation Test
+
+Simulates realistic usage by mixing:
+
+- Enqueue
+- Dequeue
+- Peek
+
+This confirms:
+
+- FIFO behaviour remains consistent
+- Length tracking remains accurate
+- No internal corruption occurs during alternating operations
+
+---
+
+### Design Notes
+
+- All output is printed explicitly to visualize behaviour.
+- Exceptions are caught using `try/except` to prevent program termination.
+- The test file does not access internal storage directly, preserving abstraction.
 
 ---
 
