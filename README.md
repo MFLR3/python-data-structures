@@ -626,6 +626,16 @@ Time complexity: **O(1)**
 
 ---
 
+#### `reset()`
+
+**Reset the array to its initial state**
+
+Refer to `DynamicArrays (Class) - reset()`
+
+Time complexity: **O(1)**
+
+---
+
 ### Design Notes
 
 - Stack does not manage memory or resizing directly.
@@ -644,7 +654,29 @@ Time complexity: **O(1)**
 
 ---
 
-# 📦 problems.py - For stack (Class)
+# 🧪 problems.py - For stack (Class)
+
+This file validates the correctness and robustness of the `Stack` implementation through structured tests.
+
+## What Is Tested
+
+- ✅ Initialization and empty state
+- ✅ Basic `push()` operations
+- ✅ `peek()` returning the top element without removal
+- ✅ Multiple `pop()` operations (verifying LIFO behaviour)
+- ✅ Correct length tracking after each operation
+- ✅ Error handling for `pop()` and `peek()` on an empty stack
+- ✅ Dynamic resizing under heavy push operations
+- ✅ Mixed operation sequences (push → pop → peek → push)
+
+### Key Validation Goals
+
+- Stack follows **Last-In, First-Out (LIFO)** order  
+- No element shifting occurs (operations occur at the end)  
+- Length and state remain consistent  
+- No corruption during resizing or resets  
+
+This practice file ensures the stack behaves correctly under normal, edge-case, and stress scenarios.
 
 ---
 

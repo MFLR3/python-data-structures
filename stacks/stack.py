@@ -37,3 +37,7 @@ class Stack:
             raise IndexError("Cannot peek on empty stack. ")
         else:
             return self.data.access_element_by_index(self.data.length - 1)
+
+    # Reset all values to default
+    def reset(self):
+        self.data.reset()
