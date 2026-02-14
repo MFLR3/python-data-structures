@@ -537,7 +537,110 @@ This confirms:
 
 ---
 
-# 📦 stack (Class)
+# 🧱 Stack
+
+---
+
+## Overview
+
+`Stack` is a Last-In, First-Out (LIFO) data structure built on top of the custom `DynamicArrays` implementation.
+
+Unlike a queue, which removes elements from the front, a stack removes elements from the top (the most recently added item).
+
+This implementation delegates storage and resizing responsibilities to `DynamicArrays` while defining stack-specific behavior.
+
+---
+
+### Core Concepts
+
+- Built using **composition** (Stack *has a* DynamicArray)
+- Push inserts at the top (end of array)
+- Pop removes from the top (end of array)
+- No element shifting required
+- Benefits from automatic resizing in `DynamicArrays`
+
+---
+
+### Class Interface
+
+---
+
+#### `__init__`
+
+Initializes an empty stack by creating a new `DynamicArrays` instance for internal storage.
+
+---
+
+#### `__len__`
+
+Returns the number of elements currently stored in the stack.
+
+Time complexity: **O(1)**
+
+---
+
+#### `__str__`
+
+Returns a readable string representation of the stack contents.
+
+Only active elements are displayed.
+
+---
+
+#### `push(value)`
+
+Adds a value to the top of the stack.
+
+Time complexity:  
+- **Amortized O(1)**  
+- Worst-case **O(n)** during resizing
+
+---
+
+#### `pop()`
+
+Removes and returns the value at the top of the stack.
+
+Raises `IndexError` if the stack is empty.
+
+Time complexity:  
+- **Amortized O(1)**
+
+---
+
+#### `peek()`
+
+Returns the value at the top without removing it.
+
+Raises `IndexError` if the stack is empty.
+
+Time complexity: **O(1)**
+
+---
+
+#### `is_empty()`
+
+Returns `True` if the stack contains no elements.
+
+Time complexity: **O(1)**
+
+---
+
+### Design Notes
+
+- Stack does not manage memory or resizing directly.
+- All storage mechanics are delegated to `DynamicArrays`.
+- Unlike Queue, Stack operations do not require element shifting.
+- This makes stack removal operations more efficient than queue removal in this implementation.
+
+---
+
+### Future Improvements
+
+- Add benchmarking comparisons
+- Implement stack using a linked list
+- Use Stack in DFS traversal
+- Add unit tests
 
 ---
 
