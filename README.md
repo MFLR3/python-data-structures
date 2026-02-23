@@ -533,6 +533,70 @@ Traversals terminate safely in cyclic graphs
 
 # 📦 hash_table (Class)
 
+## Hash Table – Dictionary Wrapper Implementation
+
+This module provides a lightweight HashTable class that wraps Python’s built-in dict.
+
+Python dictionaries are implemented internally as hash tables, providing:
+
+Average O(1) insertion
+
+Average O(1) lookup
+
+Average O(1) deletion
+
+This implementation focuses on interface consistency and interview preparation rather than rebuilding hashing mechanics from scratch.
+
+## Design Overview
+
+Uses Python dict for internal storage
+
+Supports bracket syntax (ht[key])
+
+Supports membership checks (key in ht)
+
+Supports length queries (len(ht))
+
+Provides clean string and repr output
+
+Can be extended later with a custom implementation
+
+## Supported Operations
+
+Insert / update key-value pair
+
+Retrieve value by key
+
+Delete key-value pair
+
+Membership check
+
+Safe lookup with default value
+
+Access keys, values, and items
+
+Clear entire table
+
+## Time Complexity
+
+Average case:
+
+Insert → O(1)
+
+Lookup → O(1)
+
+Delete → O(1)
+
+Worst case (rare, due to collisions):
+
+O(n)
+
+## Notes
+
+This class is intentionally minimal and built on top of Python’s native hash table implementation.
+
+A custom hash table implementation (with manual hashing and collision handling) may be added in the future for deeper exploration.
+
 ---
 
 # 📦 problems.py - For hash_table (Class)
