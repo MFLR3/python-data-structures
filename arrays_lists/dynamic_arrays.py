@@ -81,19 +81,20 @@ class DynamicArrays:
     # Removes an element at a specific index, shifting elements left and shrinking if needed.
     def remove_at_index(self, index):
         if 0 <= index < self.length:
-            if self.length > 0:
-                new_arr = self.resize(self.capacity)
-                for i in range(index, self.length - 1):
-                    new_arr[i] = new_arr[i + 1]
-                self.length -= 1
-                if (self.length <= (self.capacity // 4)) and (self.capacity > 4):
-                    self.capacity //= 2
-                    new_arr = self.resize(self.capacity)
-                    self.arr = new_arr
-                else:
-                    new_arr[self.length] = None
-                    self.arr = new_arr
-            else:
-                raise IndexError("Array is empty, removing item is not possible.")
+            value = self.arr[index]
+
+            # Shift elements LEFT inside the existing array
+            for i in range(index, self.length - 1):
+                self.arr[i] = self.arr[i + 1]
+
+            self.length -= 1
+            self.arr[self.length] = None
+
+            # Shrink if necessary
+            if (self.length <= (self.capacity // 4)) and (self.capacity > 4):
+                self.capacity //= 2
+                self.arr = self.resize(self.capacity)
+
+            return value
         else:
             raise IndexError("Index entered is out of bounds.")

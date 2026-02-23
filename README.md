@@ -234,15 +234,300 @@ As the project grows, this section may evolve into formal unit tests.
 
 ---
 
-# 📦 bfs_dfs (Class)
+# 📂 Graph.py
+
+## Graph – Undirected Adjacency List Implementation
+
+This module implements an undirected graph using an adjacency list representation.
+
+Each vertex is stored as a key in a dictionary, and its value is a list of connected vertices (neighbours).
+
+Graph structure:
+
+self.adj_list = {
+    vertex: [neighbour1, neighbour2, ...]
+}
+
+This design allows efficient vertex lookup and flexible edge management.
+
+## Design Overview
+
+Graph is undirected
+
+No duplicate vertices allowed
+
+No duplicate edges allowed
+
+Uses a Python dictionary for adjacency storage
+
+Neighbours are stored in lists
+
+## Constructor
+
+Graph()
+
+Initializes an empty graph.
+
+graph = Graph()
+
+Creates:
+
+self.adj_list = {}
+
+Time Complexity: O(1)
+
+## String Representation
+
+str()
+
+Returns a readable string representation of the graph.
+
+Each line shows:
+
+vertex: [neighbour1, neighbour2, ...]
+
+Example:
+
+A: ['B', 'C']
+B: ['A']
+C: ['A']
+
+Time Complexity: O(V)
+
+## add_vertex(vertex)
+
+Adds a new vertex to the graph.
+
+If the vertex does not exist → it is added.
+
+If the vertex already exists → duplicates are not allowed.
+
+Example:
+
+graph.add_vertex("A")
+
+Time Complexity: O(1)
+
+## add_edge(v1, v2)
+
+Adds an undirected edge between two vertices.
+
+Requirements:
+
+Both vertices must already exist.
+
+Duplicate edges are prevented.
+
+Example:
+
+graph.add_edge("A", "B")
+
+Internally:
+
+Adds v2 to v1's neighbour list
+
+Adds v1 to v2's neighbour list
+
+Time Complexity: O(1) average
+
+## remove_edge(v1, v2)
+
+Removes an undirected edge between two vertices.
+
+Raises:
+
+ValueError if either vertex does not exist
+
+ValueError if the edge does not exist
+
+Example:
+
+graph.remove_edge("A", "B")
+
+Time Complexity: O(V) worst case
+(Because list removal requires searching)
+
+## remove_vertex(vertex)
+
+Removes a vertex and all connected edges.
+
+Steps:
+
+Remove the vertex from all neighbour lists
+
+Delete the vertex from the adjacency list
+
+Example:
+
+graph.remove_vertex("A")
+
+Time Complexity: O(V + E)
+(Because connected edges must be removed)
+
+## Time & Space Complexity Summary
+
+Space Complexity:
+
+O(V + E)
+
+V = number of vertices
+
+E = number of edges
+
+Time Complexity Summary:
+
+add_vertex → O(1)
+
+add_edge → O(1) average
+
+remove_edge → O(V)
+
+remove_vertex → O(V + E)
+
+str → O(V)
+
+## Key Characteristics
+
+Undirected graph
+
+Adjacency list representation
+
+Prevents duplicate vertices
+
+Prevents duplicate edges
+
+Safe edge removal
+
+Compatible with BFS and DFS traversal modules
 
 ---
 
-# 📦 graph (Class)
+# 📂 bfs_dfs.py
+
+## 🟦 Breadth-First Search (BFS)
+
+Uses the custom Queue class to explore the graph level-by-level.
+
+Starts at the given vertex
+
+Visits all immediate neighbors first
+
+Continues outward until all reachable vertices are processed
+
+Marks vertices as visited when enqueued to prevent duplicates
+
+Time Complexity: O(V + E)
+
+(---)
+
+## 🟥 Depth-First Search (DFS)
+
+Uses the custom Stack class to explore the graph as deeply as possible before backtracking.
+
+Starts at the given vertex
+
+Follows one path fully before exploring alternatives
+
+Uses a visited set to prevent revisiting vertices
+
+Returns traversal order
+
+Time Complexity: O(V + E)
 
 ---
 
-# 📦 problems.py - For bfs_dfs (class) and graph (class)
+# 📦 problems.py - For bfs_dfs and graph (class)
+
+## 🧪 Graph – Practice & Validation
+
+This problems file validates the correctness and robustness of the Graph implementation using structured tests.
+
+### ✔ Covered Scenarios
+
+Graph initialization
+
+Adding vertices
+
+Adding undirected edges
+
+Preventing duplicate edges
+
+Handling invalid edge insertions
+
+Removing edges
+
+Removing vertices
+
+Safe vertex deletion while iterating
+
+Edge and vertex error handling
+
+Full graph teardown (removing all vertices)
+
+### 🔍 What This Confirms
+
+The adjacency list remains symmetric for undirected edges
+
+Edge removal updates both vertices correctly
+
+Vertex removal clears all connected references
+
+Dictionary mutation is handled safely during iteration
+
+Errors are raised properly for invalid operations
+
+This file ensures the graph behaves correctly under normal usage, edge cases, and structural stress testing.
+
+## BFS & DFS Practice Problems
+
+### Overview
+This problems file validates the Breadth-First Search (BFS) and Depth-First Search (DFS) implementations using the custom Graph, Queue, and Stack classes.
+
+It ensures:
+
+Correct traversal order
+
+No duplicate visits
+
+Proper cycle handling
+
+Safe error handling
+
+Correct behavior on disconnected graphs
+
+### Graph Setup
+
+A connected graph is constructed with:
+
+Multiple branching paths
+
+A large cycle
+
+A mix of shallow and deep traversal paths
+
+This allows clear comparison between BFS (level-order traversal) and DFS (depth-first traversal).
+
+### Tests Included
+
+BFS traversal from different start nodes
+
+DFS traversal from different start nodes
+
+Invalid start vertex handling
+
+Disconnected vertex behavior
+
+Dedicated cycle-only graph validation
+
+### What This Confirms
+
+Visited tracking prevents infinite loops
+
+Traversal structures (Queue for BFS, Stack for DFS) behave correctly
+
+No duplicate vertices appear in results
+
+Traversals terminate safely in cyclic graphs
 
 ---
 

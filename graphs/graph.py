@@ -29,6 +29,8 @@ class Graph:
     # Both vertices must already exist.
     # Ensures no duplicate edges are created.
     def add_edge(self, v1, v2):
+        if v1 == v2:
+            raise ValueError("Self-loops are not allowed. ")
         if v1 not in self.adj_list or v2 not in self.adj_list:
             raise ValueError("One or more vertices do not currently exist.")
         if v2 not in self.adj_list[v1]:
